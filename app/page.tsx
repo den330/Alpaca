@@ -1,78 +1,123 @@
+"use client";
 import Image from "next/image";
+import { useState } from "react";
 
 export default function Home() {
   enum ConfigurablePart {
-    Hair,
-    Ears,
-    Eyes,
-    Mouth,
-    Neck,
-    Leg,
-    Accessories,
-    Background,
+    Hair = "Hair",
+    Ears = "Ears",
+    Eyes = "Eyes",
+    Mouth = "Mouth",
+    Neck = "Neck",
+    Leg = "Leg",
+    Accessories = "Accessories",
+    Backgrounds = "Backgrounds",
   }
 
+  var [currentImageState, setCurrentImageState] = useState({
+    Hair: "Default",
+    Ears: "Default",
+    Eyes: "Default",
+    Mouth: "Default",
+    Neck: "Default",
+    Leg: "Default",
+    Accessories: "Earings",
+    Background: "Blue",
+  });
+  var [currentSelectedPart, setCurrentSelectedPart] = useState(
+    ConfigurablePart.Hair
+  );
+
   enum HairOption {
-    Default,
-    Curls,
-    Short,
-    Bang,
-    Elegant,
-    Quiff,
+    Default = "Default",
+    Curls = "Curls",
+    Short = "Short",
+    Bang = "Bang",
+    Elegant = "Elegant",
+    Quiff = "Quiff",
   }
 
   enum EarOption {
-    Default,
-    TiltBackward,
-    TiltForward,
+    Default = "Default",
+    TiltBackward = "TiltBackward",
+    TiltForward = "TiltForward",
   }
 
   enum AccessoriesOption {
-    Earings,
-    Glasses,
-    Flower,
-    Headphone,
+    Earings = "Earings",
+    Glasses = "Glasses",
+    Flower = "Flower",
+    Headphone = "Headphone",
   }
 
   enum BackgroundOption {
-    Blue,
-    Green,
-    Grey,
-    Red,
-    Yellow,
+    Blue = "Blue",
+    Green = "Green",
+    Grey = "Grey",
+    Red = "Red",
+    Yellow = "Yellow",
   }
 
   enum EyeOption {
-    Angry,
-    Default,
-    Star,
-    Naughty,
-    Panda,
-    Smart,
+    Angry = "Angry",
+    Default = "Default",
+    Star = "Star",
+    Naughty = "Naughty",
+    Panda = "Panda",
+    Smart = "Smart",
   }
 
   enum MouthOption {
-    Astonished,
-    Default,
-    Eating,
-    Laugh,
-    Tongue,
+    Astonished = "Astonished",
+    Default = "Default",
+    Eating = "Eating",
+    Laugh = "Laugh",
+    Tongue = "Tongue",
   }
 
   enum LegOption {
-    BubbleTea,
-    Coockie,
-    Default,
-    GameConsole,
-    TiltBackward,
-    TiltForward,
+    BubbleTea = "BubbleTea",
+    Coockie = "Coockie",
+    Default = "Default",
+    GameConsole = "GameConsole",
+    TiltBackward = "TiltBackward",
+    TiltForward = "TiltForward",
   }
 
   enum NeckOption {
-    Default,
-    BendBackward,
-    BendForward,
-    Thick,
+    Default = "Default",
+    BendBackward = "BendBackward",
+    BendForward = "BendForward",
+    Thick = "Thick",
+  }
+
+  const PartOptionMapping = {
+    [ConfigurablePart.Hair]: HairOption,
+    [ConfigurablePart.Ears]: EarOption,
+    [ConfigurablePart.Accessories]: AccessoriesOption,
+    [ConfigurablePart.Backgrounds]: BackgroundOption,
+    [ConfigurablePart.Eyes]: EyeOption,
+    [ConfigurablePart.Mouth]: MouthOption,
+    [ConfigurablePart.Leg]: LegOption,
+    [ConfigurablePart.Neck]: NeckOption,
+  };
+
+  function generateImageURLFor(part: ConfigurablePart, option: String) {
+    if (part === ConfigurablePart.Backgrounds) {
+      return `/${part.toLowerCase()}/${option.toLowerCase()}70.png`;
+    }
+    let theOption = option;
+    if (
+      theOption === "tiltBackward" ||
+      theOption === "tiltForward" ||
+      theOption === "bendBackward" ||
+      theOption === "bendForward" ||
+      theOption === "bubbleTea" ||
+      theOption === "gameConsole"
+    ) {
+      theOption = theOption.replace(/([A-Z])/g, "-$1");
+    }
+    return `/${part.toLowerCase()}/${option.toLowerCase()}.png`;
   }
 
   return (
@@ -81,62 +126,80 @@ export default function Home() {
       <div className="flex flex-row gap-10">
         <div className="imageContainer bg-purple-600 w-48 h-64 relative">
           <Image
-            src="/backgrounds/darkblue70.png"
+            src={generateImageURLFor(
+              ConfigurablePart.Backgrounds,
+              currentImageState.Background
+            )}
             alt="background"
             layout="fill"
             className="absolute z-0"
             priority={true}
           />
           <Image
-            src="/accessories/earings.png"
+            src={generateImageURLFor(
+              ConfigurablePart.Accessories,
+              currentImageState.Accessories
+            )}
             alt="accessories"
             layout="fill"
             className="absolute z-10"
           />
           <Image
-            src="/ears/default.png"
+            src={generateImageURLFor(
+              ConfigurablePart.Ears,
+              currentImageState.Ears
+            )}
             alt="ears"
             layout="fill"
             className="absolute z-10"
           />
           <Image
-            src="/hair/default.png"
+            src={generateImageURLFor(
+              ConfigurablePart.Hair,
+              currentImageState.Hair
+            )}
             alt="hair"
             layout="fill"
             className="absolute z-10"
           />
           <Image
-            src="/hair/bang.png"
-            alt="hair"
-            layout="fill"
-            className="absolute z-20"
-          />
-          <Image
-            src="/neck/default.png"
+            src={generateImageURLFor(
+              ConfigurablePart.Neck,
+              currentImageState.Neck
+            )}
             alt="neck"
             layout="fill"
             className="absolute z-10"
           />
           <Image
-            src="/eyes/star.png"
+            src={generateImageURLFor(
+              ConfigurablePart.Eyes,
+              currentImageState.Eyes
+            )}
             alt="eyes"
             layout="fill"
             className="absolute z-10"
           />
           <Image
-            src="/nose.png"
+            src={"/nose.png"}
             alt="nose"
             layout="fill"
             className="absolute z-10"
           />
           <Image
-            src="/mouth/laugh.png"
+            src={generateImageURLFor(
+              ConfigurablePart.Mouth,
+              currentImageState.Mouth
+            )}
             alt="mouth"
             layout="fill"
             className="absolute z-10"
           />
           <Image
-            src="/leg/default.png"
+            src={generateImageURLFor(
+              ConfigurablePart.Leg,
+              currentImageState.Leg
+            )}
             alt="leg"
             layout="fill"
             className="absolute z-10"
