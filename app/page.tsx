@@ -5,7 +5,68 @@ export default function Home() {
     <div className="bg-gray-300 w-full min-h-screen flex flex-col pt-5 pl-5 gap-5">
       <h1 className="text-black font-bold text-lg">ALPACA GENERATOR</h1>
       <div className="flex flex-row gap-10">
-        <div className="imageContainer bg-purple-600 w-48 h-64"></div>
+        <div className="imageContainer bg-purple-600 w-48 h-64 relative">
+          <Image
+            src="/backgrounds/darkblue70.png"
+            layout="fill"
+            alt="background"
+            className="absolute z-0"
+          />
+          <Image
+            src="/accessories/earings.png"
+            alt="accessories"
+            layout="fill"
+            className="absolute z-10"
+          />
+          <Image
+            src="/ears/default.png"
+            alt="ears"
+            layout="fill"
+            className="absolute z-10"
+          />
+          <Image
+            src="/hair/default.png"
+            alt="hair"
+            layout="fill"
+            className="absolute z-10"
+          />
+          <Image
+            src="/hair/bang.png"
+            alt="hair"
+            layout="fill"
+            className="absolute z-20"
+          />
+          <Image
+            src="/neck/default.png"
+            alt="neck"
+            layout="fill"
+            className="absolute z-10"
+          />
+          <Image
+            src="/eyes/star.png"
+            alt="eyes"
+            layout="fill"
+            className="absolute z-10"
+          />
+          <Image
+            src="/nose.png"
+            alt="nose"
+            layout="fill"
+            className="absolute z-10"
+          />
+          <Image
+            src="/mouth/laugh.png"
+            alt="mouth"
+            layout="fill"
+            className="absolute z-10"
+          />
+          <Image
+            src="/leg/default.png"
+            alt="leg"
+            layout="fill"
+            className="absolute z-10"
+          />
+        </div>
         <div className="buttonGroup flex flex-col gap-6">
           <div className="upperButtonGroup flex flex-col">
             <h2>ACCESSORIZE THE ALPACA'S</h2>
