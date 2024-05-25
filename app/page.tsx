@@ -1,6 +1,80 @@
 import Image from "next/image";
 
 export default function Home() {
+  enum ConfigurablePart {
+    Hair,
+    Ears,
+    Eyes,
+    Mouth,
+    Neck,
+    Leg,
+    Accessories,
+    Background,
+  }
+
+  enum HairOption {
+    Default,
+    Curls,
+    Short,
+    Bang,
+    Elegant,
+    Quiff,
+  }
+
+  enum EarOption {
+    Default,
+    TiltBackward,
+    TiltForward,
+  }
+
+  enum AccessoriesOption {
+    Earings,
+    Glasses,
+    Flower,
+    Headphone,
+  }
+
+  enum BackgroundOption {
+    Blue,
+    Green,
+    Grey,
+    Red,
+    Yellow,
+  }
+
+  enum EyeOption {
+    Angry,
+    Default,
+    Star,
+    Naughty,
+    Panda,
+    Smart,
+  }
+
+  enum MouthOption {
+    Astonished,
+    Default,
+    Eating,
+    Laugh,
+    Tongue,
+  }
+
+  enum LegOption {
+    BubbleTea,
+    Coockie,
+    Default,
+    GameConsole,
+    TiltBackward,
+    TiltForward,
+  }
+
+  enum NeckOption {
+    Default,
+    BendBackward,
+    BendForward,
+    Thick,
+  }
+
   return (
     <div className="bg-gray-300 w-full min-h-screen flex flex-col pt-5 pl-5 gap-5">
       <h1 className="text-black font-bold text-lg">ALPACA GENERATOR</h1>
@@ -8,9 +82,10 @@ export default function Home() {
         <div className="imageContainer bg-purple-600 w-48 h-64 relative">
           <Image
             src="/backgrounds/darkblue70.png"
-            layout="fill"
             alt="background"
+            layout="fill"
             className="absolute z-0"
+            priority={true}
           />
           <Image
             src="/accessories/earings.png"
