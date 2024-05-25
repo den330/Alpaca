@@ -15,6 +15,16 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    function ({ addUtilities }) {
+      const newUtilities = {
+        ".button-style": {
+          "@apply border-solid border-2 border-sky-500 rounded-xl": {},
+        },
+      };
+      addUtilities(newUtilities);
+    },
+  ],
 };
+
 export default config;
