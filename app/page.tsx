@@ -238,7 +238,7 @@ export default function Home() {
   }
 
   return (
-    <div className="bg-gray-300 w-full min-h-screen flex flex-col pt-5 pl-5 gap-5">
+    <div className="bg-green-300 w-full min-h-screen flex flex-col pt-5 pl-5 gap-5">
       <h1 className="text-black font-bold text-lg">ALPACA GENERATOR</h1>
       <div className="flex flex-row gap-10">
         <div className="imageContainer bg-purple-600 w-48 h-64 relative">
