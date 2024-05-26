@@ -22,7 +22,13 @@ jobs:
       - name: Kill server
         run: |
           PORT=3000
-          lsof -ti:$PORT | xargs kill
+          PID=$(lsof -ti:$PORT)
+          if [ ! -z "$PID" ]; then
+            echo "Killing PID $PID on port $PORT"
+            kill $PID
+          else
+            echo "No process found on port $PORT"
+          fi
         shell: bash
       - name: Stage, Commit, and Push Changes
         run: |
