@@ -19,17 +19,6 @@ jobs:
       - run: sleep 10
       - name: Snapshot
         run: node snapshot.js
-      - name: Kill server
-        run: |
-          PORT=3000
-          PID=$(lsof -ti:$PORT)
-          if [ ! -z "$PID" ]; then
-            echo "Killing PID $PID on port $PORT"
-            kill $PID || echo "Failed to kill PID $PID"
-          else
-            echo "No process found on port $PORT"
-          fi
-        shell: bash
       - name: Stage, Commit, and Push Changes
         run: |
           git config --global user.name "Jack Yuan"
