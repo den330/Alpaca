@@ -22,8 +22,6 @@ jobs:
         run: node snapshot.js
       - name: Stage, Commit, and Push Changes
         run: |
-          git config --global user.name "Jack Yuan"
-          git config --global user.email "yaxinyuan0910@gmail.com"
           git add .
           git commit -m "Update snapshot"
           git push origin main
