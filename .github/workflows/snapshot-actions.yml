@@ -14,9 +14,7 @@ jobs:
         with:
           node-version: "20"
       - run: npm install
-      - run: npm run dev &
-        shell: bash
-      - run: sleep 10
+      - run: npm run dev
       - name: Snapshot
         run: node snapshot.js
-      - run: kill $!
+      - run: kill $(lsof -t -i:3000)
