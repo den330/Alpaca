@@ -193,45 +193,45 @@ export default function Home() {
         Hair: HairOption[
           Object.keys(HairOption)[
             Math.floor(Math.random() * Object.keys(HairOption).length)
-          ]
+          ] as keyof typeof HairOption
         ],
         Ears: EarOption[
           Object.keys(EarOption)[
             Math.floor(Math.random() * Object.keys(EarOption).length)
-          ]
+          ] as keyof typeof EarOption
         ],
         Eyes: EyeOption[
           Object.keys(EyeOption)[
             Math.floor(Math.random() * Object.keys(EyeOption).length)
-          ]
+          ] as keyof typeof EyeOption
         ],
         Mouth:
           MouthOption[
             Object.keys(MouthOption)[
               Math.floor(Math.random() * Object.keys(MouthOption).length)
-            ]
+            ] as keyof typeof MouthOption
           ],
         Neck: NeckOption[
           Object.keys(NeckOption)[
             Math.floor(Math.random() * Object.keys(NeckOption).length)
-          ]
+          ] as keyof typeof NeckOption
         ],
         Leg: LegOption[
           Object.keys(LegOption)[
             Math.floor(Math.random() * Object.keys(LegOption).length)
-          ]
+          ] as keyof typeof LegOption
         ],
         Accessories:
           AccessoriesOption[
             Object.keys(AccessoriesOption)[
               Math.floor(Math.random() * Object.keys(AccessoriesOption).length)
-            ]
+            ] as keyof typeof AccessoriesOption
           ],
         Backgrounds:
           BackgroundOption[
             Object.keys(BackgroundOption)[
               Math.floor(Math.random() * Object.keys(BackgroundOption).length)
-            ]
+            ] as keyof typeof BackgroundOption
           ],
       };
     });
