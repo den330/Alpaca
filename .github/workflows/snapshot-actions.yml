@@ -19,6 +19,11 @@ jobs:
       - run: sleep 10
       - name: Snapshot
         run: node snapshot.js
+      - name: Kill server
+        run: |
+          PORT=3000
+          lsof -ti:$PORT | xargs kill
+        shell: bash
       - name: Stage, Commit, and Push Changes
         run: |
           git config --global user.name "Jack Yuan"
