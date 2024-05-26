@@ -19,4 +19,10 @@ jobs:
       - run: sleep 10
       - name: Snapshot
         run: node snapshot.js
-      - run: kill $(lsof -t -i:3000)
+      - name: Stage, Commit, and Push Changes
+        run: |
+          git config --global user.name "Jack Yuan"
+          git config --global user.email "yaxinyuan0910@gmail.com"
+          git add .
+          git commit -m "Update snapshot"
+          git push origin main
