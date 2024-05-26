@@ -25,7 +25,7 @@ jobs:
           PID=$(lsof -ti:$PORT)
           if [ ! -z "$PID" ]; then
             echo "Killing PID $PID on port $PORT"
-            kill $PID
+            kill $PID || echo "Failed to kill PID $PID"
           else
             echo "No process found on port $PORT"
           fi
