@@ -11,11 +11,5 @@ const puppeteer = require("puppeteer");
     await page.setViewport({ width: 1080, height: 1024 });
     await page.screenshot({ path: "./public/screenshot.png" });
     await browser.close();
-    const readmePath = "README.md";
-
-    // Read current README content
-    let readmeContent = fs.readFileSync(readmePath, "utf8");
-    const finalContent = `${readmeContent}\n\n![screenshot](./public/screenshot.png)`;
-    fs.writeFileSync(readmePath, finalContent);
   })();
 })();
