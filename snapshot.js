@@ -5,6 +5,6 @@ const puppeteer = require("puppeteer");
   const page = await browser.newPage();
   await page.goto("http://localhost:3000");
   await page.setViewport({ width: 1080, height: 1024 });
-  const image = await page.screenshot({ path: "/public/screenshot.png" });
+  const image = await page.screenshot({ path: "screenshot.png" });
   await browser.close();
 })();
