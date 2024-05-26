@@ -17,6 +17,7 @@ jobs:
       - run: npm run dev &
         shell: bash
       - run: sleep 10
+      - run: ls
       - name: Snapshot
         run: node snapshot.js
       - name: Stage, Commit, and Push Changes
